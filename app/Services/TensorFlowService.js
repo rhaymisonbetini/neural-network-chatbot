@@ -32,7 +32,7 @@ class TensorFlowService {
 
         const xs = tf.stack(vectors.map(x => tf.tensor1d(x)));
         const ys = tf.stack(outputs.map(x => tf.tensor1d(x)));
-        await model.fit(xs, ys, {epochs: 20, shuffle: true,});
+        await model.fit(xs, ys, {epochs: 100, shuffle: true,});
 
         let response = await this.salvar(model);
         return response;

@@ -1,6 +1,7 @@
 'use strict'
 
 const TensorFlowService = use("App/Services/TensorFlowService");
+const WriteBrainService = use("App/Services/WriteBrainService");
 const Train = use("App/Providers/Train");
 
 let bagOfWords = {};
@@ -8,6 +9,7 @@ let allWords = [];
 let vectors = [];
 let wordReference = {};
 const maxSentenceLength = 30;
+const wordReferenceName = 'wordReference.bin';
 
 class ChatPredict {
 
@@ -31,6 +33,9 @@ class ChatPredict {
         allWords.forEach(async (w, i) => {
             wordReference[w] = i + 1;
         });
+
+        let writeBrainService = new WriteBrainService();
+        await writeBrainService.writeBrain(wordReference, wordReferenceName)
 
         let outputs = await this.tokenizer(questions);
         let tensorFlowService = new TensorFlowService()
@@ -68,6 +73,9 @@ class ChatPredict {
 
     async chatbotResponse(parmas) {
 
+        let writeBrainService = new WriteBrainService();
+        let wordReference = await writeBrainService.readBrainBin(wordReferenceName);
+
         let qVec = [];
         let words = parmas.replace(/[^a-z ]/gi, "").toLowerCase().split(" ").filter(x => !!x);
         for (let i = 0; i < maxSentenceLength; i++) {
@@ -78,13 +86,14 @@ class ChatPredict {
                 qVec.push(0);
             }
         }
+
         let tensorFlowService = new TensorFlowService()
         let response = await tensorFlowService.textAnalizer(qVec)
 
         let train = new Train();
         let datas = await train.returnDatas();
 
-        return { response: datas[response].Answer.Aliases[Math.floor((Math.random() * 5) + 1)]}
+        return { response: datas[response].Answer.Aliases[Math.floor((Math.random() * 5) + 1)] }
     }
 
 

@@ -30,8 +30,6 @@ class BrainController {
         try {
 
             let question = request.all();
-            console.log(question);
-
             let chatPredict = new ChatPredict();
             let chatBotResponse = await chatPredict.chatbotResponse(question.question);
 
