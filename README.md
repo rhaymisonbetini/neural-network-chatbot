@@ -26,3 +26,10 @@ npm install
 adonis serve --dev
 ```
 Your chatbot will start at localhost on port 3333
+
+# 2 HOW TO TRAIN YOUR CHATBOT
+
+This is a very cool step in our system.
+inside ```/app/Providers/Train.js /``` there is our Train class.<br/>
+It has a method called returnDatas ().<br/>
+This is our method that returns all questions with their answers so that our system does all the training.<br/>
