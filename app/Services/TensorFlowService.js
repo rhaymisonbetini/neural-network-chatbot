@@ -6,12 +6,6 @@ class TensorFlowService {
 
     async train(allWords, maxSentenceLength, questions, vectors, outputs) {
 
-        console.log(allWords)
-        console.log(maxSentenceLength)
-        console.log(questions)
-        console.log(vectors)
-        console.log(outputs)
-
         const model = tf.sequential();
 
         model.add(tf.layers.embedding({ inputDim: allWords.length + 1, outputDim: 128, inputLength: maxSentenceLength, maskZero: true }));
