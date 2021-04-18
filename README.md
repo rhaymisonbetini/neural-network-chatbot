@@ -75,4 +75,20 @@ After the training, 3 files will be generated within ```/public/brain/```
 These files are basically the brain of our application. Whenever you send a sentence, our chatbot will load <br/>
 your model to process and give you the best answer.
 
+# 3 TALKING WITH OUR CHATBOT
 
+You must initially call the route below with the POST verb
+
+```javascript
+Route.post('/chatbot', 'BrainController.chatbot');
+```
+Ok, remember to put the phrase in your call with the name of QUESTION so that it is interpreted by our <br/>
+controller and sent to our chat. The method below exemplifies
+
+```javascript
+let question = request.all();
+let chatPredict = new ChatPredict();
+let chatBotResponse = await chatPredict.chatbotResponse(question.question);
+```
+
+Okay, now just wait for the answers from our RNA.
