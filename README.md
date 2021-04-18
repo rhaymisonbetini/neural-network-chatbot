@@ -4,7 +4,7 @@
 
 ![alt text](https://chatbotmaker.io/wp-content/uploads/ia-e-chatbots.png)
 
-CHATBOT NEURAL-NETWORK is an open source project developed with RNA aimed at automating chat processes in systems.<br/>
+CHATBOT NEURAL-NETWORK is an open source project developed with RNN aimed at automating chat processes in systems.<br/>
 
 Every system runs on top of Google's powerful TensorFlow and the Adonis.js Framework (with node.js).<br/>
 
@@ -93,7 +93,7 @@ let chatPredict = new ChatPredict();
 let chatBotResponse = await chatPredict.chatbotResponse(question.question);
 ```
 
-Okay, now just wait for the answers from our RNA.
+Okay, now just wait for the answers from our RNN.
 
 # 4 production environment
 
