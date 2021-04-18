@@ -33,3 +33,22 @@ This is a very cool step in our system.
 inside ```/app/Providers/Train.js /``` there is our Train class.<br/>
 It has a method called returnDatas ().<br/>
 This is our method that returns all questions with their answers so that our system does all the training.<br/>
+
+An array of objects will be returned that should contain the phrase that our chat should learn and the possible answers that exist for that phrase.
+<b>It is very important that each sentence had 5 and only 5 answer alternatives.<b/><br/>
+```javascript
+ {
+                Question: "Olá",
+                Answer: {
+                    Aliases: [
+                        "Ei,tudo bem?",
+                        "Ola,tudo bem?",
+                        "Ei como vai voce?",
+                        "Oi, tudo bem?",
+                        "Que bom que voce veio, ola!",
+                    ],
+                },
+            },
+
+```
+
