@@ -142,7 +142,7 @@ Now run the command to see if everything is running:
 pm2 list
 ```
 
-All right, now just start validating the images and texts sent to your system
+Okay, now we can start our conversation based on everything that has been taught to our chatbot
 
 # 5 Authentication system
 * Development
