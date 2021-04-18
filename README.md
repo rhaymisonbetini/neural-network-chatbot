@@ -37,7 +37,9 @@ This is our method that returns all questions with their answers so that our sys
 An array of objects will be returned that should contain the phrase that our chat should learn and the possible answers that exist for that phrase.
 <b>It is very important that each sentence had 5 and only 5 answer alternatives.<b/><br/>
 ```javascript
- {
+async returnDatas() {
+        return [
+            {
                 Question: "Olá",
                 Answer: {
                     Aliases: [
@@ -48,7 +50,7 @@ An array of objects will be returned that should contain the phrase that our cha
                         "Que bom que voce veio, ola!",
                     ],
                 },
-            },
-
+            }
+        ]
 ```
 
