@@ -54,4 +54,25 @@ async returnDatas() {
         ]
   }
 ```
+Perfect. Now we must define our training times ... The more times, the greater the number of neural connections in our network. <br/>
+Inside of ```/app/Services/TensorFlowService.js``` existe o seguinte metodo do nosso TensorFlow:
+```javascript 
+    await model.fit(xs, ys, {epochs: 100, shuffle: true,});
+```
+Change the times to the quantity you want. The greater the processing of your machine, the faster the training will be. <br/>
+Initially configured for 100 times. <br/>
+  
+Okay, now with our phrases and responses defined, let's call the following training route:
+```javascript
+Route.get('/train', 'BrainController.train');
+```
+
+After the training, 3 files will be generated within ```/public/brain/```
+* model.json ( TensorFlow)
+* weights.bin ( TensorFlow)
+* wordReference.bin ( TensorFlow)
+
+These files are basically the brain of our application. Whenever you send a sentence, our chatbot will load <br/>
+your model to process and give you the best answer.
+
 
