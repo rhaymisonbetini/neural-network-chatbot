@@ -92,3 +92,55 @@ let chatBotResponse = await chatPredict.chatbotResponse(question.question);
 ```
 
 Okay, now just wait for the answers from our RNA.
+
+# 4 production environment
+
+To run our AI in a production environment to validate our images and texts, we follow the steps below:
+
+initially install PM2:
+```
+npm install pm2 -g
+```
+All right, now we must configure our AI. Our .env file must have the following characteristics
+
+```
+HOST=0.0.0.0
+PORT=3333
+NODE_ENV=production 
+APP_URL=http://${HOST}:${PORT}
+CACHE_VIEWS=false
+APP_KEY=DgtuWIF6DlJq1UK4NjPlqwecPCzbvbfm
+
+DB_CONNECTION=sqlite
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=
+DB_DATABASE=adonis
+
+SESSION_DRIVER=cookie
+HASH_DRIVER=bcrypt
+
+```
+Now we are going to generate a new APP_KEY for our AI (in the future it will be used for authentication on our system).
+
+```
+ adonis key:generate
+```
+
+Okay, now it's time to get our AI to run.
+Within the root folder of the system, execute the command:
+
+```
+pm2 start server.js --name
+```
+Now run the command to see if everything is running:
+
+```
+pm2 list
+```
+
+All right, now just start validating the images and texts sent to your system
+
+# 5 Authentication system
+* Development
