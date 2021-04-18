@@ -12,7 +12,7 @@ class BrainController {
             let learned = await chatPredict.trainChatBot();
 
             if (learned) {
-                return response.status(200).send({ message: 'Ashiley learned' });
+                return response.status(200).send({ message: 'chat learned' });
             } else {
                 return response.status(406).send({ message: 'NOT ACCEPTABLE' })
             }
