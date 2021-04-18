@@ -10,6 +10,8 @@ Every system runs on top of Google's powerful TensorFlow and the Adonis.js Frame
 
 Without a database dependency, all brain models and files are stored in Binary.<br/>
 
+![alt text](https://raw.githubusercontent.com/rhaymisonbetini/neural-network-chatbot/main/public/print/print.jpg)
+
 # 1 HOW TO INSTALL
 
 ```
