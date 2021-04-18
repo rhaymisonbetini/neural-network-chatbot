@@ -57,7 +57,7 @@ async returnDatas() {
 Perfect. Now we must define our training times ... The more times, the greater the number of neural connections in our network. <br/>
 Inside of ```/app/Services/TensorFlowService.js``` existe o seguinte metodo do nosso TensorFlow:
 ```javascript 
-    await model.fit(xs, ys, {epochs: 100, shuffle: true,});
+await model.fit(xs, ys, {epochs: 100, shuffle: true,});
 ```
 Change the times to the quantity you want. The greater the processing of your machine, the faster the training will be. <br/>
 Initially configured for 100 times. <br/>
